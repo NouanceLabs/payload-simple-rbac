@@ -22,8 +22,8 @@ You create an array of roles in **order of priority** with the latter being the 
 In the `plugins` array of your [Payload config](https://payloadcms.com/docs/configuration/overview), call the plugin with [options](#options):
 
 ```ts
-import { buildConfig } from 'payload/config'
-import payloadSimpleRBAC, { starterRoles } from '@nouance/payload-simple-rbac'
+import { buildConfig } from "payload/config";
+import payloadSimpleRBAC, { starterRoles } from "@nouance/payload-simple-rbac";
 
 const config = buildConfig({
   // ... rest of my config
@@ -31,23 +31,23 @@ const config = buildConfig({
     payloadSimpleRBAC({
       roles: starterRoles,
       users: [Users.slug],
-      defaultRole: 'editor', // set a default
+      defaultRole: "editor", // set a default
       collections: [
         {
           slug: Posts.slug,
           permissions: {
-            read: 'publishedOnly',
-            update: 'editor',
-            create: 'editor',
-            delete: 'manager',
+            read: "publishedOnly",
+            update: "editor",
+            create: "editor",
+            delete: "manager",
           },
         },
       ],
     }),
   ],
-})
+});
 
-export default config
+export default config;
 ```
 
 ### Options
@@ -103,52 +103,64 @@ export default config
   This allows **full public access**. The actual function is
 
   ```ts
-  publicAccess = () => true
+  publicAccess = () => true;
   ```
 
-## A fuller example
+### Starter roles
 
 ```ts
-import { buildConfig } from 'payload/config'
-import payloadSimpleRBAC from '@nouance/payload-simple-rbac'
+import { starterRoles } from "@nouance/payload-simple-rbac";
+
+// ...
+  roles: starterRoles,
+// ...
+```
+
+`starterRoles` is an array containing 3 roles, `editor` | `manager` | `admin` .
+
+## Full example
+
+```ts
+import { buildConfig } from "payload/config";
+import payloadSimpleRBAC from "@nouance/payload-simple-rbac";
 
 const config = buildConfig({
   plugins: [
     payloadSimpleRBAC({
-      roles: ['customer', 'editor', 'manager', 'admin'],
+      roles: ["customer", "editor", "manager", "admin"],
       users: [Users.slug],
-      defaultRole: 'customer',
+      defaultRole: "customer",
       collections: [
         {
           slug: Posts.slug,
           permissions: {
-            read: 'publishedOnly',
-            update: 'editor',
-            create: 'editor',
-            delete: 'manager',
+            read: "publishedOnly",
+            update: "editor",
+            create: "editor",
+            delete: "manager",
           },
         },
         {
           slug: Categories.slug,
           permissions: {
-            read: 'public',
+            read: "public",
           },
         },
         {
           slug: Tags.slug,
           permissions: {
-            read: 'publishedOnly',
-            create: 'manager',
-            update: 'manager',
-            delete: 'admin',
+            read: "publishedOnly",
+            create: "manager",
+            update: "manager",
+            delete: "admin",
           },
         },
       ],
     }),
   ],
-})
+});
 
-export default config
+export default config;
 ```
 
 ## Development
