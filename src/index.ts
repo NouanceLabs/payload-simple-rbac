@@ -4,6 +4,7 @@ import type { GlobalConfig } from "payload/types";
 import type { PluginConfig } from "./types";
 import { extendWebpackConfig } from "./utilities/extendWebpackConfig";
 import accessControl from "./accessControl/index";
+import starterRoles from "./utilities/starterRoles";
 
 const payloadSimpleRBAC =
   (incomingConfig: PluginConfig) =>
@@ -117,3 +118,5 @@ const payloadSimpleRBAC =
   };
 
 export default payloadSimpleRBAC;
+
+export { starterRoles };
