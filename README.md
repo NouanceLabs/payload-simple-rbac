@@ -15,7 +15,7 @@ A plugin for [Payload CMS](https://github.com/payloadcms/payload) to provide a b
 ## How it works
 
 On the face of it, this plugin only aims to get you up and started with some form of Role-Based Access Control.  
-You create an array of roles in **order of priority** with the latter being the most important.
+You create an array of roles in **order of priority** with the latter being the most important, for example this means that an admin can do everything an editor can and more but an editor will be limited to their level of access.
 
 ## Basic Usage
 
