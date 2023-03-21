@@ -1,7 +1,3 @@
-const starterRoles = {
-  editor: 1,
-  manager: 2,
-  admin: 3,
-};
+const starterRoles = ["editor", "manager", "admin"];
 
 export default starterRoles;
