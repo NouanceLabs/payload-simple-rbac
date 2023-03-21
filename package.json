@@ -1,0 +1,39 @@
+{
+  "name": "@nouance/payload-simple-rbac",
+  "version": "0.1.3",
+  "homepage:": "https://nouance.io",
+  "repository": "git@github.com:NouanceLabs/payload-rbac.git",
+  "description": "PayloadCMS plugin to help handle simple RBAC permissions.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "payload",
+    "roles",
+    "permissions",
+    "rbac",
+    "cms",
+    "plugin",
+    "typescript"
+  ],
+  "author": "dev@nouance.io",
+  "license": "MIT",
+  "peerDependencies": {
+    "payload": "^1.6.22",
+    "react": "^18.2.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "payload": "^1.6.22",
+    "typescript": "^4.5.5"
+  },
+  "files": [
+    "dist",
+    "types.js",
+    "types.d.ts"
+  ]
+}

@@ -1,0 +1,8 @@
+node_modules
+
+dist
+.env
+demo/uploads
+build
+.DS_Store
+package-lock.json
