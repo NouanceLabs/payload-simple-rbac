@@ -66,9 +66,15 @@ export default config;
 
 - `defaultRole`
 
-  `String` | Optional
+  `String` | Required
 
   Set the default role for users to have.
+
+- `fieldName`
+
+  `String` | Optional | Defaults to `role`
+
+  Allows you to configure the machine name of the role field to avoid conflicts.
 
 - `collections`
 

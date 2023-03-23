@@ -10,9 +10,11 @@ const payloadSimpleRBAC =
   (incomingConfig: PluginConfig) =>
   (config: PayloadConfig): PayloadConfig => {
     const { collections, admin } = config;
-    const { users, roles, defaultRole, globals } = incomingConfig;
+    const { users, roles, defaultRole, globals, fieldName } = incomingConfig;
 
     if (!roles || !users) return config;
+
+    const roleField = fieldName ?? "role";
 
     const processedConfig: PayloadConfig = {
       admin: {
@@ -28,7 +30,7 @@ const payloadSimpleRBAC =
               fields: [
                 ...collection.fields,
                 {
-                  name: "role",
+                  name: roleField,
                   type: "select",
                   defaultValue: defaultRole,
                   options: [

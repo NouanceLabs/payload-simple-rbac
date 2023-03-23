@@ -1,6 +1,6 @@
 {
   "name": "@nouance/payload-simple-rbac",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage:": "https://nouance.io",
   "repository": "git@github.com:NouanceLabs/payload-rbac.git",
   "description": "PayloadCMS plugin to help handle simple RBAC permissions.",

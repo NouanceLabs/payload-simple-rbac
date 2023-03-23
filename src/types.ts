@@ -22,6 +22,7 @@ export interface PluginConfig {
   roles: string[];
   users: string[];
   defaultRole: string;
+  fieldName?: string;
   collections?: Collection[];
   globals?: Global[];
 }
