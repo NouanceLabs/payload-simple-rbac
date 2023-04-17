@@ -20,11 +20,7 @@ export const extendWebpackConfig =
           ...(existingWebpackConfig.resolve?.alias
             ? existingWebpackConfig.resolve.alias
             : {}),
-          stripe: mockModulePath,
           express: mockModulePath,
-          [path.resolve(__dirname, "./accessControl/index")]: mockModulePath,
-          [path.resolve(__dirname, "./accessControl/createOrUpdateCollection")]:
-            mockModulePath,
         },
       },
     };

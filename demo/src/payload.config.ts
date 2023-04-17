@@ -7,10 +7,28 @@ import Users from "./collections/Users";
 import Media from "./collections/Media";
 import payloadSimpleRBAC from "../../src/index";
 
+export const myRoles = ["customer", "editor", "manager", "admin"];
+
 export default buildConfig({
   serverURL: "http://localhost:3000",
   admin: {
     user: Users.slug,
+    webpack: (config) => {
+      const newConfig = {
+        ...config,
+        resolve: {
+          ...config.resolve,
+          alias: {
+            ...config.resolve.alias,
+            react: path.join(__dirname, "../node_modules/react"),
+            "react-dom": path.join(__dirname, "../node_modules/react-dom"),
+            payload: path.join(__dirname, "../node_modules/payload"),
+          },
+        },
+      };
+
+      return newConfig;
+    },
   },
   collections: [Categories, Posts, Tags, Users, Media],
   typescript: {
@@ -21,7 +39,7 @@ export default buildConfig({
   },
   plugins: [
     payloadSimpleRBAC({
-      roles: ["customer", "editor", "manager", "admin"],
+      roles: myRoles,
       users: [Users.slug],
       defaultRole: "customer",
       collections: [
