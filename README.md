@@ -124,6 +124,54 @@ import { starterRoles } from "@nouance/payload-simple-rbac";
 
 `starterRoles` is an array containing 3 roles, `editor` | `manager` | `admin` .
 
+## Functions
+
+We've exposed our internal functions in case you want to use them in your own code or in combination with other access controls.
+
+- `hasRole`
+
+  Takes in your target role and full list of roles.
+
+  ```ts
+  read: hasRole("editor", myRoles);
+  ```
+
+- `hasRoleField`
+
+  Takes in your target role and full list of roles. Specifically used for field access control.
+
+  ```ts
+  {
+    name: "metadata",
+    type: "json",
+    access: {
+      read: hasRoleField("admin", myRoles),
+    },
+  },
+  ```
+
+- `publicAccess`
+
+  Anyone can pass this access control.
+
+  ```ts
+  read: publicAccess();
+  ```
+
+- `publishedOnly`
+
+  Any logged in user can pass this access control, non-authenticated requests can only pass published checks.
+  You can also pass an array of strings for auth collection slugs to limit the auth'd access only to a specific set of users.
+
+  ```ts
+  read: publishedOnly();
+  ```
+
+  ```ts
+  // limited to 'user' collection slug, other auth collections will not pass
+  read: publishedOnly(["user"]);
+  ```
+
 ## Full example
 
 ```ts
