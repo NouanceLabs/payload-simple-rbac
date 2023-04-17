@@ -1,4 +1,4 @@
-import { Access } from "payload/config";
+import type { Access } from "payload/config";
 
 export const publishedOnly: Access = ({ req: { user } }) => {
   if (user?.collection === "users") return true;

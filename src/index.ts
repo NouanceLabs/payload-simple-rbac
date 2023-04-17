@@ -5,6 +5,10 @@ import type { PluginConfig } from "./types";
 import { extendWebpackConfig } from "./utilities/extendWebpackConfig";
 import accessControl from "./accessControl/index";
 import starterRoles from "./utilities/starterRoles";
+import { hasRole } from "./accessControl/hasRole";
+import { hasRoleField } from "./accessControl/hasRoleField";
+import { publicAccess } from "./accessControl/public";
+import { publishedOnly } from "./accessControl/publishedOnly";
 
 const payloadSimpleRBAC =
   (incomingConfig: PluginConfig) =>
@@ -121,4 +125,4 @@ const payloadSimpleRBAC =
 
 export default payloadSimpleRBAC;
 
-export { starterRoles };
+export { starterRoles, hasRole, publicAccess, publishedOnly, hasRoleField };

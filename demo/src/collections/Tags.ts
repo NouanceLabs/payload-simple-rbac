@@ -1,4 +1,6 @@
 import { CollectionConfig } from "payload/types";
+import { hasRoleField } from "../../../src";
+import { myRoles } from "../payload.config";
 
 const Tags: CollectionConfig = {
   slug: "tags",
@@ -21,6 +23,9 @@ const Tags: CollectionConfig = {
     {
       name: "metadata",
       type: "json",
+      access: {
+        read: hasRoleField("admin", myRoles),
+      },
     },
   ],
   timestamps: true,
