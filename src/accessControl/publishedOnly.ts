@@ -1,11 +1,17 @@
 import type { Access } from "payload/config";
 
-export const publishedOnly: Access = ({ req: { user } }) => {
-  if (user?.collection === "users") return true;
+export function publishedOnly(slugs?: string[]): Access {
+  return ({ req: { user } }) => {
+    if (slugs) {
+      if (user?.collection && slugs.includes(user.collection)) return true;
+    } else {
+      if (user) return true;
+    }
 
-  return {
-    _status: {
-      equals: "published",
-    },
+    return {
+      _status: {
+        equals: "published",
+      },
+    };
   };
-};
+}

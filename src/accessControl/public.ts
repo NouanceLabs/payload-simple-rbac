@@ -1,3 +1,5 @@
 import type { Access } from "payload/config";
 
-export const publicAccess: Access = () => true;
+export function publicAccess(): Access {
+  return () => true;
+}

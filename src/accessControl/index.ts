@@ -9,9 +9,9 @@ function accessControl(
 ): Access {
   switch (permission) {
     case "public":
-      return publicAccess;
+      return publicAccess();
     case "publishedOnly":
-      return publishedOnly;
+      return publishedOnly();
     default:
       return hasRole(permission, roles);
   }
